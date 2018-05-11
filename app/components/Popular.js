@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
+var api = require('../utils/api');
 
 function SelectLanguage (props) {
 	var languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
@@ -29,7 +30,8 @@ class Popular extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedLanguage: 'All'
+      selectedLanguage: 'All',
+      repos: null
     };
     
     this.updateLanguage = this.updateLanguage.bind(this);
