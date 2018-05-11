@@ -10,6 +10,11 @@ li {
 	list-style-type: none;
 }
 
+a {
+	text-decoration: none;
+	color: #d0021b;
+}
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -50,4 +55,16 @@ li {
 .popular-rank {
 	font-size: 20px;
 	margin: 10px;
+}
+
+.nav {
+	display: flex;
+}
+
+.active {
+	font-weight: bold;
+}
+
+.nav li {
+	margin-right: 15px;
 }
