@@ -1,7 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
-function PlayerPreview () {
+function PlayerPreview (props) {
   return (
     <div>
       <div className='column'>
@@ -95,6 +95,7 @@ PlayerInput.defaultProps = {
 class Battle extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       playerOneName: '',
       playerTwoName: '',
@@ -103,6 +104,7 @@ class Battle extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
   handleSubmit(id, username) {
     this.setState(function () {
@@ -112,9 +114,19 @@ class Battle extends React.Component {
       return newState;
     });
   }
+  handleReset(id) {
+    this.setState(function () {
+      var newState = {};
+      newState[id + 'Name'] = '';
+      newState[id + 'Image'] = null;
+      return newState;
+    })
+  }
   render() {
     var playerOneName = this.state.playerOneName;
     var playerTwoName = this.state.playerTwoName;
+    var playerOneImage = this.state.playerOneImage;
+    var playerTwoImage = this.state.playerTwoImage;
 
     return (
       <div>
@@ -127,11 +139,29 @@ class Battle extends React.Component {
             />
           }
 
+          {playerOneImage !== null && 
+            <PlayerPreview 
+              id='playerOne'
+              avatar={playerOneImage}
+              username={playerOneName}
+              onReset={this.handleReset}
+            />
+          }
+
           {!playerTwoName &&
             <PlayerInput
               id='playerTwo'
               label='Player Two'
               onSubmit={this.handleSubmit}
+            />
+          }
+
+          {playerTwoImage !== null &&
+            <PlayerPreview 
+              id='playerTwo'
+              avatar={playerTwoImage}
+              username={playerTwoName}
+              onReset={this.handleReset}
             />
           }
         </div>
