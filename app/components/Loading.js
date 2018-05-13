@@ -34,6 +34,9 @@ class Loading extends React.Component {
       }
     }.bind(this), this.props.speed)
   }
+  componentWillUnmount() {
+    window.clearInterval(this.interval);
+  }
   render() {
     return (
       <p style={styles.content}>
