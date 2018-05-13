@@ -4,7 +4,8 @@
   "description": "Project for React Fundamentals course.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "build": "NODE_ENV='production' webpack -p"
   },
   "babel": {
     "presets": [
