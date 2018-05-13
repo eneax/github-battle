@@ -7,7 +7,7 @@ var PlayerPreview = require('./PlayerPreview');
 
 function Profile (props) {
   var info = props.info;
-  
+
   return (
     <PlayerPreview avatar={info.avatar_url} username={info.login} >
       <ul className='space-list-items'>
@@ -24,7 +24,7 @@ function Profile (props) {
 }
 
 Profile.propTypes = {
-  info: PropTypes.object.isRequired 
+  info: PropTypes.object.isRequired,
 }
 
 function Player (props) {
@@ -40,7 +40,7 @@ function Player (props) {
 Player.propTypes = {
   label: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 }
 
 class Results extends React.Component {
@@ -62,7 +62,7 @@ class Results extends React.Component {
       players.playerTwoName
     ]).then(function (results) {
       if (results === null) {
-        this.setState(function() {
+        return this.setState(function() {
           return {
             error: 'Looks like there was an error. Check that both users exist on Github!',
             loading: false
