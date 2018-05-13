@@ -10,7 +10,7 @@ var styles = {
 
 class Loading extends React.Component {
   constructor(props) {
-    super(pros);
+    super(props);
 
     this.state = {
       text: props.text
