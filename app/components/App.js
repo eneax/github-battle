@@ -5,6 +5,7 @@ import Nav from './Nav';
 import Home from './Home';
 import Battle from './Battle';
 import Results from './Results';
+import tachyons from 'tachyons';
 
 class App extends React.Component {
 	render() {

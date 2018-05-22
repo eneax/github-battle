@@ -2,6 +2,25 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
+/* Nav */
+nav {
+  font-weight: 600
+}
+
+a.dtc.v-mid.near-black.link.dim.w-25,
+a.dtc.v-mid.near-black.link.dim.w-25.active,
+a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns,
+a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns.active,
+a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns,
+a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns.active {
+  outline: none;
+}
+
+
+/* 
+
+
+
 ul {
 	padding: 0;
 }
@@ -142,4 +161,6 @@ a {
 
 .reset:hover {
   cursor: pointer;
-}
+} 
+
+*/
