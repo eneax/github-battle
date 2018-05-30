@@ -1,5 +1,11 @@
 body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  background: radial-gradient(black 15%, transparent 16%) 0 0,
+              radial-gradient(black 15%, transparent 16%) 8px 8px,
+              radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+              radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
 }
 
 /* Nav */
@@ -7,19 +13,36 @@ nav {
   font-weight: 600
 }
 
-a.dtc.v-mid.near-black.link.dim.w-25,
-a.dtc.v-mid.near-black.link.dim.w-25.active,
-a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns,
-a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns.active,
-a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns,
-a.link.dim.near-black.f6.f5-ns.dib.mr3.mr4-ns.active {
+a.dtc.v-mid.white.link.dim.w-25,
+a.dtc.v-mid.white.link.dim.w-25.active,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns.active,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns.active {
   outline: none;
+}
+
+/* Home */
+h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  /* font-size: 6rem; */
+  font-size: 2rem;
+  line-height: 5.5rem;
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
 }
 
 
 /* 
-
-
 
 ul {
 	padding: 0;
