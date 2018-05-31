@@ -34,6 +34,23 @@ nav {
   font-weight: 600
 }
 
+.active {
+  color: #2FD565 !important;
+  transition: color .15s ease-in;
+}
+.active:hover {
+  transition: color .15s ease-in;
+}
+
+.active-effect {
+  opacity: 1;
+  transition: opacity .15s ease-in;
+}
+.active-effect:hover {
+  opacity: .8;
+  transition: opacity .15s ease-in;
+}
+
 a.dtc.v-mid.white.link.dim.w-25,
 a.dtc.v-mid.white.link.dim.w-25.active,
 a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns,
@@ -134,10 +151,6 @@ h1 {
   text-align: center;
   font-size: 30px;
   font-weight: 200;
-}
-
-.active {
-	font-weight: bold;
 }
 
 .button {
