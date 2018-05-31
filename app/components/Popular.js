@@ -7,7 +7,7 @@ function SelectLanguage ({ selectedLanguage, onSelect }) {
 	const languages = ['All', 'CSS', 'Javascript', 'Ruby', 'Python', 'Java'];
 	
 	return (
-    <ul className='languages tc'>
+    <ul className='languages tc ba b--white br4'>
       {languages.map((lang) => {
         return (
           <li
@@ -26,18 +26,22 @@ function RepoGrid ({ repos }) {
   return (
     <ul className='popular-list'>
       {repos.map(({ name, owner, html_url, stargazers_count }, index) => (
-          <li key={name} className='popular-item' >
+          <li key={name} className='popular-item mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 grow' >
             <div className='popular-rank'>#{index + 1}</div>
-            <ul className='space-list-items'>
+            <ul>
               <li>
                 <img 
-                  className='avatar' 
+                  className='popular-img br-100 h4 w4 dib ba b--black-05 bg-near-white pa2 mb2' 
                   src={owner.avatar_url}
                   alt={'Repo for ' + owner.login} />
               </li>
-              <li><a href={html_url}>{name}</a></li>
-              <li>@{owner.login}</li>
-              <li>{stargazers_count} stars</li>
+              <li>
+                <a className='popular-link f3 f4-ns mb2 underline-hover' href={html_url} target='_blank'>
+                  {name}
+                </a>
+              </li>
+              <li className='f5 fw4 gray mt2'>@{owner.login}</li>
+              <li className='f5 fw4 gray mt0'>{stargazers_count.toLocaleString()} stars</li>
             </ul>
           </li>
         )
@@ -90,3 +94,25 @@ class Popular extends React.Component {
 }
 
 export default Popular;
+
+
+
+// <ul className='popular-list'>
+//       {repos.map(({ name, owner, html_url, stargazers_count }, index) => (
+//           <li key={name} className='popular-item' >
+//             <div className='popular-rank'>#{index + 1}</div>
+//             <ul className='space-list-items'>
+//               <li>
+//                 <img 
+//                   className='avatar' 
+//                   src={owner.avatar_url}
+//                   alt={'Repo for ' + owner.login} />
+//               </li>
+//               <li><a href={html_url}>{name}</a></li>
+//               <li>@{owner.login}</li>
+//               <li>{stargazers_count} stars</li>
+//             </ul>
+//           </li>
+//         )
+//       )}
+//     </ul>
