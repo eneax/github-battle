@@ -62,7 +62,9 @@ h1 {
 /* Popular */
 .languages {
   display: flex;
-	justify-content: center;
+  justify-content: center;
+  max-width: 60%;
+	margin: 0 auto;
 }
 @media (max-width: 425px) {
   .languages { flex-direction: column; }
@@ -80,8 +82,8 @@ h1 {
 .popular-list {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
-
+  justify-content: space-around;
+  
 }
 
 .popular-item {
