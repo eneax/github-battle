@@ -4,21 +4,21 @@ import { fetchPopularRepos } from '../utils/api';
 import Loading from './Loading';
 
 function SelectLanguage ({ selectedLanguage, onSelect }) {
-	const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
+	const languages = ['All', 'CSS', 'Javascript', 'Ruby', 'Python', 'Java'];
 	
 	return (
-		<ul className='languages'>
-			{languages.map((lang) => {
-				return (
-					<li
-						style={lang === selectedLanguage ? { color: '#d0021b' } : null}
+    <ul className='languages tc'>
+      {languages.map((lang) => {
+        return (
+          <li
+            style={lang === selectedLanguage ? { color: '#26bc57' } : null}
             onClick={() => onSelect(lang)}
-						key={lang}>
-						{lang}
-					</li>
-				)
-			})}
-		</ul>
+            key={lang}>
+            {lang}
+          </li>
+        )
+      })}
+    </ul>
 	)
 }
 
