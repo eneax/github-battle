@@ -24,21 +24,15 @@ a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns.active {
 
 /* Home */
 h1 {
-  font-weight: 700;
   text-transform: uppercase;
-  /* font-size: 6rem; */
   font-size: 2rem;
   line-height: 5.5rem;
 }
 @media (min-width: 992px) {
-  h1 {
-    font-size: 3rem;
-  }
+  h1 { font-size: 3rem; }
 }
 @media (min-width: 1200px) {
-  h1 {
-    font-size: 4rem;
-  }
+  h1 { font-size: 4rem; }
 }
 
 /* Battle */
