@@ -32,24 +32,29 @@ class PlayerInput extends React.Component {
     const { username } = this.state;
     const { label } = this.props;
     return (
-      <form className='column' onSubmit={this.handleSubmit}>
-        <label className='header' htmlFor='username'>
-          {label}
-        </label>
-        <input
-          id='username'
-          placeholder='github username'
-          type='text'
-          autoComplete='off'
-          value={username}
-          onChange={this.handleChange}
-        />
-        <button
-          className='button'
-          type='submit'
-          disabled={!username}>
-            Submit
-        </button>
+      <form className='column pa4 black-80 mt3 mt6-m mt6-l' onSubmit={this.handleSubmit}>
+        <div className="measure tc">
+          <label className='header white f1-l f2 b db mb2' htmlFor='username'>
+            {label}
+          </label>
+          <input
+            className='input-reset ba bw1 b--white bg-transparent white pa2 mb2 db w-100 br2 tc'
+            id='username'
+            placeholder='Github Username'
+            type='text'
+            autoComplete='off'
+            value={username}
+            onChange={this.handleChange}
+          />
+          <button
+            className='button ba b--white bg-transparent white f6 no-underline grow dib v-mid ph3 pv2 mb3 br2'
+            type='submit'
+            disabled={!username}>
+              Submit
+          </button>
+
+          
+        </div>
       </form>
     )
   }
