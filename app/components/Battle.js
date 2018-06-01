@@ -47,7 +47,7 @@ class PlayerInput extends React.Component {
             onChange={this.handleChange}
           />
           <button
-            className='button ba b--white bg-transparent white f6 no-underline grow dib v-mid ph3 pv2 mb3 br2'
+            className='button ba b--white bw1 bg-transparent white f6 no-underline grow dib v-mid ph3 pv2 mb3 br2'
             type='submit'
             disabled={!username}>
               Submit
@@ -133,7 +133,7 @@ class Battle extends React.Component {
 
         {playerOneImage && playerTwoImage && 
           <Link 
-            className='battle'
+            className='battle w-30 w-10-ns ba b--white bw1 bg-transparent white f6 no-underline grow v-mid tc center ph3 pv2 mt2 mb3 br2'
             to={{
               pathname: match.url + '/results',
               search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
