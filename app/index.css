@@ -73,6 +73,10 @@ h1 {
   h1 { font-size: 4rem; }
 }
 
+.title {
+  color: #2FD565;
+}
+
 /* Battle */
 .measure { margin: 0 auto; }
 @media (min-width: 992px) {
