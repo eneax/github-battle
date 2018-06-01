@@ -6,6 +6,7 @@ import Home from './Home';
 import Battle from './Battle';
 import Results from './Results';
 import tachyons from 'tachyons';
+import NoMatch from './NoMatch';
 
 class App extends React.Component {
 	render() {
@@ -18,7 +19,7 @@ class App extends React.Component {
 						<Route exact path='/battle' component={Battle} />
 						<Route path='/battle/results' component={Results} />
 						<Route path='/popular' component={Popular} />
-						<Route render={() => <p>Not Found</p> } />
+						<Route component={NoMatch} />
 					</Switch>
 				</div>
 			</Router>
