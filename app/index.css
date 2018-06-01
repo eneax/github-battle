@@ -105,6 +105,12 @@ a.info-blog {
   color: #2FD565;
 }
 
+/* Loading */
+.loading {
+  color: #2FD565;
+  font-weight: bold;
+}
+
 /* .column {
 	display: flex;
 	flex-direction: column;

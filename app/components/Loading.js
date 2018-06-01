@@ -35,7 +35,7 @@ class Loading extends React.Component {
   }
   render() {
     return (
-      <p style={styles.content}>
+      <p className='loading' style={styles.content}>
         {this.state.text}
       </p>
     )
