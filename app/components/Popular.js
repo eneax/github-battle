@@ -27,7 +27,7 @@ function RepoGrid ({ repos }) {
     <ul className='popular-list'>
       {repos.map(({ name, owner, html_url, stargazers_count }, index) => (
           <li key={name} className='popular-item mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 grow' >
-            <div className='popular-rank'>#{index + 1}</div>
+            <div className='popular-rank b'>#{index + 1}</div>
             <ul>
               <li>
                 <img 
@@ -36,7 +36,7 @@ function RepoGrid ({ repos }) {
                   alt={'Repo for ' + owner.login} />
               </li>
               <li>
-                <a className='popular-link f3 f4-ns mb2 underline-hover' href={html_url} target='_blank'>
+                <a className='popular-link b f3 f4-ns mb2 underline-hover' href={html_url} target='_blank'>
                   {name}
                 </a>
               </li>
@@ -94,25 +94,3 @@ class Popular extends React.Component {
 }
 
 export default Popular;
-
-
-
-// <ul className='popular-list'>
-//       {repos.map(({ name, owner, html_url, stargazers_count }, index) => (
-//           <li key={name} className='popular-item' >
-//             <div className='popular-rank'>#{index + 1}</div>
-//             <ul className='space-list-items'>
-//               <li>
-//                 <img 
-//                   className='avatar' 
-//                   src={owner.avatar_url}
-//                   alt={'Repo for ' + owner.login} />
-//               </li>
-//               <li><a href={html_url}>{name}</a></li>
-//               <li>@{owner.login}</li>
-//               <li>{stargazers_count} stars</li>
-//             </ul>
-//           </li>
-//         )
-//       )}
-//     </ul>

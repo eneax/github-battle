@@ -6,7 +6,7 @@ export default function PlayerPreview ({ avatar, username, children }) {
     <div className='mw5 center br3 pa3 pa4-ns mv3 ba b--white tc mt3 mt5-m mt5-l'>
       <div className=''>
         <img
-          className='avatar br-100 h4 w4 dib ba b--black-05 bg-near-white pa1'
+          className='br-100 h4 w4 dib ba b--black-05 bg-near-white pa1'
           src={avatar}
           alt={'Avatar for ' + username}  
         />

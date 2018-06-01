@@ -30,7 +30,7 @@ Profile.propTypes = {
 function Player ({ label, score, profile }) {
   return (
     <div>
-      <h1 className='header white f1-l f2 b db mb2 tc'>{label}</h1>
+      <h1 className='white f1-l f2 b db mb2 tc'>{label}</h1>
       <h3 className='tc score'>Score: {score.toLocaleString()}</h3>
       <Profile info={profile}/>
     </div>
