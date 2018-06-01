@@ -32,7 +32,7 @@ class PlayerInput extends React.Component {
     const { username } = this.state;
     const { label } = this.props;
     return (
-      <form className='column pa4 black-80 mt3 mt6-m mt6-l' onSubmit={this.handleSubmit}>
+      <form className='column pa4 black-80 mt3 mt6-m mt6-l center' onSubmit={this.handleSubmit}>
         <div className="measure tc">
           <label className='header white f1-l f2 b db mb2' htmlFor='username'>
             {label}
@@ -100,7 +100,7 @@ class Battle extends React.Component {
               username={playerOneName}
             >
               <button
-                className='reset'
+                className='reset ba b--white bw1 bg-transparent white f6 no-underline grow dib v-mid ph3 pv2 mb3 br2'
                 onClick={ () => { this.handleReset('playerOne')} }
               >
                 Reset
@@ -122,7 +122,7 @@ class Battle extends React.Component {
               username={playerTwoName}
             >
               <button
-                className='reset'
+                className='reset ba b--white bw1 bg-transparent white f6 no-underline grow dib v-mid ph3 pv2 mb3 br2'
                 onClick={ () => { this.handleReset('playerTwo')} }
               >
                 Reset
@@ -133,7 +133,7 @@ class Battle extends React.Component {
 
         {playerOneImage && playerTwoImage && 
           <Link 
-            className='button'
+            className='battle'
             to={{
               pathname: match.url + '/results',
               search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`

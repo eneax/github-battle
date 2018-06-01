@@ -22,7 +22,7 @@ a {
 	color: #282828;
 }
 
-/* .button {
+.battle {
   color: #e6e6e6;
   background: #0a0a0a;
   border: none;
@@ -35,15 +35,15 @@ a {
   margin: 10px auto;
 }
 
-.button:hover:enabled {
+.battle:hover:enabled {
   background: linear-gradient(#1a1a1a,#0a0a0a);
   color: #fff;
   text-decoration: none;
 }
 
-.button:active {
+.battle:active {
   transform: translateY(1px);
-} */
+}
 
 /* .space-list-items { margin-bottom: 7px; }
 
@@ -110,10 +110,14 @@ h1 {
 .measure input:focus {
   outline-color: #2FD565;
 }
-/* .row {
-	display: flex;
-	justify-content: space-around;
-} */
+
+.username {
+  color: #2FD565;
+}
+
+.reset:focus {
+  outline:none;
+}
 
 /* .column {
 	display: flex;
