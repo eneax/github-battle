@@ -10,14 +10,14 @@ function Profile ({ info }) {
 
   return (
     <PlayerPreview avatar={info.avatar_url} username={info.login} >
-      <ul className='space-list-items'>
-        {info.name && <li>{info.name}</li>}
-        {info.location && <li>{info.location}</li>}
-        {info.company && <li>{info.company}</li>}
-        <li>Followers: {info.followers}</li>
-        <li>Following: {info.following}</li>
-        <li>Public Repos: {info.public_repos}</li>
-        {info.blog && <li><a href={info.blog}>{info.blog}</a></li>}
+      <ul className='space-list-items white'>
+        {info.name && <li className='f3 mb2 b'>{info.name}</li>}
+        {info.location && <li className='mb2'>{info.location}</li>}
+        {info.company && <li className='mb2'>{info.company}</li>}
+        <li className='mb2'>Followers: {info.followers.toLocaleString()}</li>
+        <li className='mb2'>Following: {info.following.toLocaleString()}</li>
+        <li className='mb2'>Public Repos: {info.public_repos}</li>
+        {info.blog && <li className='mb2'><a className='info-blog' href={info.blog}>{info.blog}</a></li>}
       </ul>
     </PlayerPreview>
   )
@@ -30,8 +30,8 @@ Profile.propTypes = {
 function Player ({ label, score, profile }) {
   return (
     <div>
-      <h1 className='header'>{label}</h1>
-      <h3 style={{textAlign: 'center'}}>Score: {score}</h3>
+      <h1 className='header white f1-l f2 b db mb2 tc'>{label}</h1>
+      <h3 className='tc score'>Score: {score.toLocaleString()}</h3>
       <Profile info={profile}/>
     </div>
   )

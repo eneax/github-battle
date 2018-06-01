@@ -22,14 +22,6 @@ a {
 	color: #282828;
 }
 
-.battle {
-  display: block;
-  background: radial-gradient(#2FD565,#0a0a0a);
-}
-.battle:hover:enabled {
-  color: #fff;
-}
-
 /* .space-list-items { margin-bottom: 7px; }
 
 .avatar {
@@ -82,9 +74,7 @@ h1 {
 }
 
 /* Battle */
-.measure {
-	margin: 0 auto;
-}
+.measure { margin: 0 auto; }
 @media (min-width: 992px) {
   .row {
     display: flex;
@@ -92,16 +82,23 @@ h1 {
   }
 }
 
-.measure input:focus {
-  outline-color: #2FD565;
-}
+.measure input:focus { outline-color: #2FD565; }
 
-.username {
+.username { color: #2FD565; }
+
+.reset:focus { outline:none; }
+
+.battle {
+  display: block;
+  font-weight: bold;
+  background: radial-gradient(#2FD565,#0a0a0a);
+}
+.battle:hover:enabled { color: #fff; }
+
+/* Results */
+.score,
+a.info-blog {
   color: #2FD565;
-}
-
-.reset:focus {
-  outline:none;
 }
 
 /* .column {
