@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/eneax/github-battle/issues"
   },
-  "homepage": "https://github.com/eneax/github-battle#readme"
+  "homepage": "https://github.com/eneax/github-battle#readme",
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
 }
