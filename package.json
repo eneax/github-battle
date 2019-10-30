@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/eneax/github-battle#readme",
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
