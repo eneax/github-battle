@@ -1,31 +1,29 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
-module.exports = {
-  // define entry point of the app
-  entry: './app/index.js',
-  // where the bundle that webpack creates is going to go
+var config = {
+  entry: ['babel-polyfill', 'whatwg-fetch', './app/index.js'],
   output: {
-    // create a 'dist' folder inside the root folder
     path: path.resolve(__dirname, 'dist'),
-    // inside 'dist', create a bundle file
     filename: 'index_bundle.js',
+    publicPath: '/'
   },
-  // transformations that need to be made on our code
   module: {
     rules: [
-      // select all js files and transform jsx code into js that browser can read
       { test: /\.(js)$/, use: 'babel-loader' },
-      // select all css files and use loaders to make css import work
-      { test: /\.(css)$/, use: ['style-loader', 'css-loader'] },
-    ],
+      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]}
+    ]
   },
-  mode: 'development',
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
-    // create new instance of HtmlWebpackPlugin
     new HtmlWebpackPlugin({
-      // take 'index.html' and create a copy of it containing the bundled file inside 'dist' folder
-      template: 'app/index.html',
-    }),
+      template: 'app/index.html'
+    })
   ],
-}
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
+};
+
+module.exports = config;

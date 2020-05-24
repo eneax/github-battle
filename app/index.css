@@ -1,116 +1,150 @@
-html,
-body,
-#app {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
+/**********
+  GENERAL
+**********/
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
-}
-
-ul {
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  background: radial-gradient(black 15%, transparent 16%) 0 0,
+              radial-gradient(black 15%, transparent 16%) 8px 8px,
+              radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+              radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size: 16px 16px;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
-.flex-center {
+ul { padding: 0; }
+li { list-style-type: none; }
+
+a {
+	text-decoration: none;
+	color: #282828;
+}
+
+/**************
+  GREEN COLOR
+**************/
+.title,
+.username,
+.score,
+a.info-blog,
+.loading,
+.languages li:hover,
+.no-match,
+.popular-rank,
+.popular-link {
+  color: #2FD565;
+}
+
+/******
+  NAV
+******/
+nav { font-weight: 600; }
+
+.active {
+  color: #2FD565 !important;
+  transition: color .15s ease-in;
+}
+.active:hover {
+  transition: color .15s ease-in;
+}
+
+.active-effect {
+  opacity: 1;
+  transition: opacity .15s ease-in;
+}
+.active-effect:hover {
+  opacity: .8;
+  transition: opacity .15s ease-in;
+}
+
+a.dtc.v-mid.white.link.dim.w-25,
+a.dtc.v-mid.white.link.dim.w-25.active,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns.active,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns,
+a.link.dim.white.f6.f5-ns.dib.mr3.mr4-ns.active {
+  outline: none;
+}
+
+/*******
+  HOME
+*******/
+h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  line-height: 5.5rem;
+}
+@media (min-width: 992px) {
+  h1 { font-size: 3rem; }
+}
+@media (min-width: 1200px) {
+  h1 { font-size: 4rem; }
+}
+
+/*********
+  BATTLE
+*********/
+.measure { margin: 0 auto; }
+@media (min-width: 992px) {
+  .row {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.measure input:focus { outline-color: #2FD565; }
+
+.reset:focus { outline:none; }
+
+.battle {
+  display: block;
+  font-weight: bold;
+  background: radial-gradient(#2FD565,#0a0a0a);
+}
+.battle:hover:enabled { color: #fff; }
+
+/* Popular */
+.languages {
   display: flex;
   justify-content: center;
-  align-items: center;
+  max-width: 60%;
+	margin: 0 auto;
+}
+@media (max-width: 425px) {
+  .languages { flex-direction: column; }
 }
 
-.btn-clear {
-  border: none;
-  background: transparent;
+.languages li {
+	margin: 10px;
+	font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  transition: color .3s;
 }
 
-.nav-link {
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  color: inherit;
-}
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.space-around {
+.popular-list {
+	display: flex;
+	flex-wrap: wrap;
   justify-content: space-around;
+  
 }
 
-.header-lg {
-  font-size: 35px;
-  font-weight: 300;
-  margin: 20px;
+.popular-item {
+	margin: 20px;
+	text-align: center;
 }
 
-.avatar {
-  display: block;
-  margin: 0 auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 3px;
-}
-
-.center-text {
-  text-align: center;
-}
-
-.link {
-  color: rgb(187, 46, 31);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.card-list {
-  margin: 20px 0;
-  font-size: 20px;
-}
-
-.card-list li {
-  display: flex;
-  align-items: center;
+.popular-rank {
+	font-size: 20px;
   margin: 10px;
 }
 
-.card-list svg {
-  margin-right: 10px;
-}
-
-.card-list a {
-  font-weight: 500;
-  color: inherit;
-}
-
-.bg-light {
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 3px;
-}
-
-.repo {
-  margin: 10px 0;
-  width: 250px;
-  padding: 20px;
-}
-
-.repo a {
-  text-decoration: none;
-}
-
-.repo img {
-  margin-bottom: 8px;
+.popular-img {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 
+              0 3px 1px -2px rgba(0, 0, 0, .2), 
+              0 1px 5px 0 rgba(0, 0, 0, .12);
 }
