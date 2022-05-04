@@ -6,6 +6,7 @@ import {
   FaUsers,
   FaUserFriends,
   FaUser,
+  FaCode,
 } from "react-icons/fa";
 
 import { battle } from "../utils/api";
@@ -38,6 +39,10 @@ function ProfileList({ profile }) {
       <li>
         <FaUserFriends color="rgb(64, 183, 95)" size={22} />
         {profile.following.toLocaleString()} following
+      </li>
+      <li>
+        <FaCode color="rgb(59, 76, 85)" size={22} />
+        {profile.public_repos.toLocaleString()} repositories
       </li>
     </ul>
   );
