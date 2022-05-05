@@ -13,6 +13,7 @@ import { battle } from "../utils/api";
 
 import Card from "./Card";
 import Loading from "./Loading";
+import Tooltip from "./Tooltip";
 
 function ProfileList({ profile }) {
   return (
@@ -23,14 +24,18 @@ function ProfileList({ profile }) {
       </li>
       {profile.location && (
         <li>
-          <FaCompass color="rgb(144, 115, 255)" size={22} />
-          {profile.location}
+          <Tooltip text="User's location">
+            <FaCompass color="rgb(144, 115, 255)" size={22} />
+            {profile.location}
+          </Tooltip>
         </li>
       )}
       {profile.company && (
         <li>
-          <FaBriefcase color="#795548" size={22} />
-          {profile.company}
+          <Tooltip text="User's company">
+            <FaBriefcase color="#795548" size={22} />
+            {profile.company}
+          </Tooltip>
         </li>
       )}
       <li>
@@ -42,8 +47,10 @@ function ProfileList({ profile }) {
         {profile.following.toLocaleString()} following
       </li>
       <li>
-        <FaCode color="rgb(59, 76, 85)" size={22} />
-        {profile.public_repos.toLocaleString()} repositories
+        <Tooltip text="User's public repos">
+          <FaCode color="rgb(59, 76, 85)" size={22} />
+          {profile.public_repos.toLocaleString()} repositories
+        </Tooltip>
       </li>
     </ul>
   );
