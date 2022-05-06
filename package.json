@@ -30,6 +30,7 @@
   "homepage": "https://github.com/eneax/github-battle#readme",
   "dependencies": {
     "prop-types": "^15.8.1",
+    "query-string": "^6.13.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.3.1",
