@@ -11,18 +11,14 @@ import Battle from "./components/Battle";
 import Results from "./components/Results";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      theme: "light",
-      toggleTheme: () => {
-        this.setState((state) => ({
-          theme: state.theme === "light" ? "dark" : "light",
-        }));
-      },
-    };
-  }
+  state = {
+    theme: "light",
+    toggleTheme: () => {
+      this.setState((state) => ({
+        theme: state.theme === "light" ? "dark" : "light",
+      }));
+    },
+  };
 
   render() {
     return (
