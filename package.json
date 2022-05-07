@@ -10,6 +10,9 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "repository": {
@@ -29,6 +32,7 @@
   },
   "homepage": "https://github.com/eneax/github-battle#readme",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "prop-types": "^15.8.1",
     "query-string": "^6.13.7",
     "react": "^18.1.0",
