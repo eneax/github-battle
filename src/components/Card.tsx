@@ -3,7 +3,21 @@ import PropTypes from "prop-types";
 
 import ThemeContext from "../context/theme";
 
-const Card = ({ header, subheader, avatar, href, name, children }) => {
+const Card = ({
+  header,
+  subheader,
+  avatar,
+  href,
+  name,
+  children,
+}: {
+  header: string;
+  subheader?: string;
+  avatar: string;
+  href: string;
+  name: string;
+  children: React.ReactNode;
+}) => {
   const theme = React.useContext(ThemeContext);
 
   return (
