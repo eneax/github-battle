@@ -9,10 +9,14 @@ module.exports = {
     filename: "index_bundle.js",
     publicPath: "/",
   },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|ts|tsx)$/,
         use: "babel-loader",
       },
       {
