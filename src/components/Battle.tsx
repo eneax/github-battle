@@ -42,16 +42,23 @@ const Instructions = () => {
   );
 };
 
-const PlayerInput = ({ label, onSubmit }) => {
+const PlayerInput = ({
+  label,
+  onSubmit,
+}: {
+  label: string;
+  onSubmit: (username: string) => void;
+}) => {
   const [username, setUsername] = React.useState("");
   const theme = React.useContext(ThemeContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     onSubmit(username);
   };
 
-  const handleChange = (event) => setUsername(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setUsername(event.target.value);
 
   return (
     <form className="column player" onSubmit={handleSubmit}>
@@ -86,7 +93,15 @@ PlayerInput.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-const PlayerPreview = ({ label, username, onReset }) => {
+const PlayerPreview = ({
+  label,
+  username,
+  onReset,
+}: {
+  label: string;
+  username: string;
+  onReset: () => void;
+}) => {
   const theme = React.useContext(ThemeContext);
 
   return (
@@ -118,13 +133,13 @@ PlayerPreview.propTypes = {
 };
 
 const Battle = () => {
-  const [playerOne, setPlayerOne] = React.useState(null);
-  const [playerTwo, setPlayerTwo] = React.useState(null);
+  const [playerOne, setPlayerOne] = React.useState<string | null>(null);
+  const [playerTwo, setPlayerTwo] = React.useState<string | null>(null);
 
-  const handleSubmit = (id, player) =>
+  const handleSubmit = (id: string, player: string) =>
     id === "playerOne" ? setPlayerOne(player) : setPlayerTwo(player);
 
-  const handleReset = (id) =>
+  const handleReset = (id: string) =>
     id === "playerOne" ? setPlayerOne(null) : setPlayerTwo(null);
 
   return (
