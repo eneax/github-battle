@@ -8,7 +8,7 @@ const activeStyle = {
   color: "rgb(187, 46, 31)",
 };
 
-const Nav = ({ toggleTheme }) => {
+const Nav = ({ toggleTheme }: { toggleTheme: () => void }) => {
   const theme = React.useContext(ThemeContext);
 
   return (
