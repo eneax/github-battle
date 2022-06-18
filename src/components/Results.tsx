@@ -11,13 +11,13 @@ import {
 import { Link } from "react-router-dom";
 import queryString from "query-string";
 
-import { battle } from "../utils/api";
+import { battle, Player, User } from "../utils/api";
 
 import Card from "./Card";
 import Loading from "./Loading";
 import Tooltip from "./Tooltip";
 
-const ProfileList = ({ profile }) => (
+const ProfileList = ({ profile }: { profile: User }) => (
   <ul className="card-list">
     <li>
       <FaUser color="rgb(239, 115, 115)" size={22} />
@@ -60,7 +60,28 @@ ProfileList.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
-const resultsReducer = (state, action) => {
+interface ResultsReducerState {
+  winner: Player | null;
+  loser: Player | null;
+  error: string | null;
+  loading: boolean;
+}
+
+type ResultsReducerAction =
+  | {
+      type: "success";
+      winner: Player;
+      loser: Player;
+    }
+  | {
+      type: "error";
+      error: string;
+    };
+
+const resultsReducer = (
+  state: ResultsReducerState,
+  action: ResultsReducerAction
+): ResultsReducerState => {
   if (action.type === "success") {
     return {
       winner: action.winner,
@@ -75,7 +96,7 @@ const resultsReducer = (state, action) => {
       loading: false,
     };
   } else {
-    throw new Error(`Unexpected action: ${action.type}`);
+    throw new Error("Unexpected action type!");
   }
 };
 
@@ -86,12 +107,12 @@ const initialState = {
   loading: true,
 };
 
-const Results = ({ location }) => {
+const Results = ({ location }: { location: { search: string } }) => {
   const [state, dispatch] = React.useReducer(resultsReducer, initialState);
   const { playerOne, playerTwo } = queryString.parse(location.search);
 
   React.useEffect(() => {
-    battle([playerOne, playerTwo])
+    battle([playerOne, playerTwo] as [string, string])
       .then((players) =>
         dispatch({ type: "success", winner: players[0], loser: players[1] })
       )
@@ -100,7 +121,7 @@ const Results = ({ location }) => {
 
   const { winner, loser, error, loading } = state;
 
-  if (loading === true) {
+  if (loading === true || !winner || !loser) {
     return <Loading text="Battling" />;
   }
 
