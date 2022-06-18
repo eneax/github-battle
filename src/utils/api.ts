@@ -15,6 +15,12 @@ export interface User {
   followers: number;
   login: string;
   avatar_url: string;
+  name: string;
+  location?: string;
+  company?: string;
+  following: number;
+  public_repos: number;
+  html_url: string;
 }
 
 function getProfile(username: string): Promise<User> {
