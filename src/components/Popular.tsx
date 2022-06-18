@@ -7,14 +7,29 @@ import {
   FaExclamationTriangle,
 } from "react-icons/fa";
 
-import { fetchPopularRepos } from "../utils/api";
+import { fetchPopularRepos, Repo } from "../utils/api";
 
 import Card from "./Card";
 import Loading from "./Loading";
 import Tooltip from "./Tooltip";
 
-const LanguagesNav = ({ selected, onUpdateLanguage }) => {
-  const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
+type Languages = "All" | "JavaScript" | "Ruby" | "Java" | "CSS" | "Python";
+
+const LanguagesNav = ({
+  selected,
+  onUpdateLanguage,
+}: {
+  selected: Languages;
+  onUpdateLanguage: (language: Languages) => void;
+}) => {
+  const languages: Languages[] = [
+    "All",
+    "JavaScript",
+    "Ruby",
+    "Java",
+    "CSS",
+    "Python",
+  ];
 
   return (
     <ul className="flex-center">
@@ -22,7 +37,9 @@ const LanguagesNav = ({ selected, onUpdateLanguage }) => {
         <li key={language}>
           <button
             className="btn-clear nav-link"
-            style={selected === language ? { color: "rgb(187, 46, 31)" } : null}
+            style={
+              selected === language ? { color: "rgb(187, 46, 31)" } : undefined
+            }
             onClick={() => onUpdateLanguage(language)}
           >
             {language}
@@ -38,7 +55,7 @@ LanguagesNav.propTypes = {
   onUpdateLanguage: PropTypes.func.isRequired,
 };
 
-const ReposGrid = ({ repos }) => (
+const ReposGrid = ({ repos }: { repos: Repo[] }) => (
   <ul className="grid space-around">
     {repos.map((repo, index) => {
       const { name, owner, html_url, stargazers_count, forks, open_issues } =
@@ -84,7 +101,25 @@ ReposGrid.propTypes = {
   repos: PropTypes.array.isRequired,
 };
 
-const popularReducer = (state, action) => {
+interface PopularReducerState extends Partial<Record<Languages, Repo[]>> {
+  error: string | null;
+}
+
+type PopularReducerAction =
+  | {
+      type: "success";
+      selectedLanguage: Languages;
+      repos: Repo[];
+    }
+  | {
+      type: "error";
+      error: Error;
+    };
+
+const popularReducer = (
+  state: PopularReducerState,
+  action: PopularReducerAction
+) => {
   if (action.type === "success") {
     return {
       ...state,
@@ -97,16 +132,17 @@ const popularReducer = (state, action) => {
       error: action.error.message,
     };
   } else {
-    throw new Error(`Unhandled action type: ${action.type}`);
+    throw new Error("Unhandled action type!");
   }
 };
 
 const Popular = () => {
-  const [selectedLanguage, setSelectedLanguage] = React.useState("All");
+  const [selectedLanguage, setSelectedLanguage] =
+    React.useState<Languages>("All");
   const [state, dispatch] = React.useReducer(popularReducer, { error: null }); // combine repos and error
 
   // Prevent the component from rendering if the state changes
-  const fetchedLanguages = React.useRef([]);
+  const fetchedLanguages = React.useRef<string[]>([]);
 
   React.useEffect(() => {
     // Fetch only the languages that we haven't already fetched
@@ -120,6 +156,7 @@ const Popular = () => {
   }, [fetchedLanguages, selectedLanguage]);
 
   const isLoading = () => !state[selectedLanguage] && state.error === null;
+  const selectedRepos = state[selectedLanguage];
 
   return (
     <React.Fragment>
@@ -132,7 +169,7 @@ const Popular = () => {
 
       {state.error && <p className="center-text error">{state.error}</p>}
 
-      {state[selectedLanguage] && <ReposGrid repos={state[selectedLanguage]} />}
+      {selectedRepos && <ReposGrid repos={selectedRepos} />}
     </React.Fragment>
   );
 };

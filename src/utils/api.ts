@@ -13,6 +13,8 @@ function getErrorMsg(message: string, username: string) {
 export interface User {
   id: string;
   followers: number;
+  login: string;
+  avatar_url: string;
 }
 
 function getProfile(username: string): Promise<User> {
@@ -29,7 +31,12 @@ function getProfile(username: string): Promise<User> {
 
 export interface Repo {
   id: string;
+  name: string;
+  owner: User;
+  html_url: string;
   stargazers_count: number;
+  forks: number;
+  open_issues: number;
 }
 
 function getRepos(username: string): Promise<Repo[]> {
